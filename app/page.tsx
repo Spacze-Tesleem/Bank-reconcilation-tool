@@ -1,12 +1,18 @@
 "use client"
 
 import { ThemeProvider } from "../components/theme"
-import Component from "../reconciliation-tool"
+import { AppProvider } from "../contexts/app-context"
+import { AuthProvider } from "../contexts/auth-context"
+import MainApplication from "../components/main-application"
 
 export default function Page() {
   return (
     <ThemeProvider>
-      <Component />
+      <AuthProvider>
+        <AppProvider>
+          <MainApplication />
+        </AppProvider>
+      </AuthProvider>
     </ThemeProvider>
   )
 }
